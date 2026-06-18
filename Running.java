@@ -18,17 +18,23 @@ public class Running extends Activity
 		return distanceKm;
 	}
 
-	public double calculateCalories()
+	@Override
+	public double calculateCalories() 
 	{
-		//Member B
-		
-		return 0.0;
+		return distanceKm * 0.8 * getDurationInMinutes();
 	}
 
-	public double calculatePoints()
+	@Override
+	public double calculatePoints() 
 	{
-		// Member B
-		
-		return 0.0;
+		return calculateCalories() / 10;
+	}
+
+	@Override
+	public String toString() 
+	{
+		return "Running | Distance: " + distanceKm + "km | Duration: " + 
+			getDurationInMinutes() + "min | Calories: " + calculateCalories() + 
+			" | Points: " + calculatePoints();
 	}
 }

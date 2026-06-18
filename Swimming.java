@@ -18,17 +18,23 @@ public class Swimming extends Activity
 		return laps;
 	}
 
-	public double calculateCalories()
+	@Override
+	public double calculateCalories() 
 	{
-		// Member B
-
-		return 0.0;
+		return laps * 0.5 * getDurationInMinutes();
 	}
 
-	public double calculatePoints()
+	@Override
+	public double calculatePoints() 
 	{
-		// Member B
+		return laps * 1.0;
+	}
 
-		return 0.0;
+	@Override
+	public String toString() 
+	{
+		return "Swimming | Laps: " + laps + " | Duration: " + 
+			getDurationInMinutes() + "min | Calories: " + calculateCalories() + 
+			" | Points: " + calculatePoints();
 	}
 }

@@ -24,18 +24,34 @@ public class User
 		return totalPoints;
 	}
 
-	public void addPoints(double points)
+	public void addPoints(double points) 
 	{
-		//Member B
+		this.totalPoints += points;
 	}
 
-	public void addActivity(Activity activity)
+	public void addActivity(Activity activity) 
 	{
-		//Member B
+		this.activityLog.add(activity);
+		addPoints(activity.calculatePoints());
 	}
 
-	public void displayDashboard()
+	public void displayDashboard() 
 	{
-		//Member B
+		System.out.println("\n=== USER DASHBOARD ===");
+		System.out.println("Username: " + username);
+		System.out.println("Total Points: " + totalPoints);
+		System.out.println("Total Activities: " + activityLog.size());
+		System.out.println("\nActivity Log:");
+		
+		if (activityLog.isEmpty()) 
+		{
+			System.out.println("No activities recorded yet.");
+		} else {
+			for (int i = 0; i < activityLog.size(); i++) 
+			{
+				Activity a = activityLog.get(i);
+				System.out.println((i + 1) + ". " + a.toString());
+			}
+		}
 	}
 }
