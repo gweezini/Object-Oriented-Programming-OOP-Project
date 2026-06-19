@@ -35,6 +35,11 @@ public class User
 		addPoints(activity.calculatePoints());
 	}
 
+	public ArrayList<Activity> getActivityLog()
+	{
+		return activityLog;
+	}
+
 	public void displayDashboard() 
 	{
 		System.out.println("\n=== USER DASHBOARD ===");

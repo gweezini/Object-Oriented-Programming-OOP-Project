@@ -26,11 +26,23 @@ public class FitnessSystemUI
 		//Member C
 		//1. print menu 1. 2. 3.
 		//2. use scanner.nextInt to read input
-		//3.use switch case to decide what will be executed 
+		//3.use switch case to decide what will be executed
 		//4.use try-catch to handle exception
-		System.out.print("Enter your username: ");
-		String username=scanner.next();
-		currentUser=new User(username);
+
+		// Member D: auto-load saved data on startup
+		User savedUser = recordManager.loadUserData();
+		if (savedUser != null)
+		{
+			currentUser = savedUser;
+			System.out.println("Welcome back, " + currentUser.getUsername() + "! Your data has been loaded.");
+		}
+		else
+		{
+			System.out.print("Enter your username: ");
+			String username = scanner.next();
+			currentUser = new User(username);
+		}
+
 		boolean running=true;
 
 		while(running){
